@@ -201,6 +201,28 @@ export function CollectionsHero() {
           />
         ))}
       </div>
+
+      {/* Scroll Down to Catalog Button */}
+      <button
+        onClick={() => {
+          const el = document.getElementById('catalog');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1.5 text-canvas/80 hover:text-white transition-all cursor-pointer group"
+        aria-label="Scroll down to view products"
+      >
+        <span className="text-[10px] font-medium tracking-[0.2em] uppercase transition-transform duration-300 group-hover:translate-y-0.5">
+          Explore Pieces
+        </span>
+        <svg
+          viewBox="0 0 24 24"
+          className="w-4 h-4 fill-none stroke-current stroke-[1.5px] animate-bounce"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
     </section>
   );
 }

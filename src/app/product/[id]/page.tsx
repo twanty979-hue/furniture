@@ -21,6 +21,7 @@ const CATEGORY_STRUCTURE: { label: string; members: string[] }[] = [
 
 import { Product } from '@/components/collections2/PremiumProductCard';
 import { Variant } from '@/components/product/ProductActions';
+import { MOCK_PRODUCTS } from '@/data/mockProducts';
 
 interface DetailedProduct extends Product {
   width_cm?: number;
@@ -172,7 +173,13 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
   }
 
   if (!product) {
-    notFound();
+    const mock = MOCK_PRODUCTS.find(p => String(p.id) === String(params.id)) || MOCK_PRODUCTS[0];
+    if (mock) {
+      product = mock as DetailedProduct;
+      recommendedProducts = (MOCK_PRODUCTS.filter(p => String(p.id) !== String(mock.id)) as unknown as Product[]).slice(0, 8);
+    } else {
+      notFound();
+    }
   }
 
   // Fetch all variants in the same collection group

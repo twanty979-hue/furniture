@@ -108,7 +108,7 @@ function AsymCard({
               src={imgUrl}
               alt={`${product.name} - view ${idx + 1}`}
               loading={idx === 0 ? 'eager' : 'lazy'}
-              className="card-img absolute inset-0 w-full h-full object-contain will-change-transform"
+              className="card-img absolute inset-0 w-full h-full object-cover will-change-transform"
               style={{
                 opacity: currentImageIndex === idx ? 1 : 0,
                 transform: currentImageIndex === idx
@@ -124,7 +124,7 @@ function AsymCard({
           <img
             src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800"
             alt={product.name}
-            className="absolute inset-0 w-full h-full object-contain"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         )}
 

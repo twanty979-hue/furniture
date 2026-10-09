@@ -76,7 +76,7 @@ export function PremiumProductCard({ product, index }: { product: Product; index
               key={`${product.id}-${idx}`}
               src={imgUrl} 
               alt={`${product.name} - view ${idx + 1}`}
-              className={`absolute inset-0 w-full h-full object-contain transition-all duration-1000 ease-in-out ${
+              className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
                 currentImageIndex === idx 
                   ? 'opacity-100 scale-100' 
                   : 'opacity-0 scale-105 pointer-events-none'
@@ -87,7 +87,7 @@ export function PremiumProductCard({ product, index }: { product: Product; index
           <img 
             src="https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=600" 
             alt={product.name}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-cover"
           />
         )}
         

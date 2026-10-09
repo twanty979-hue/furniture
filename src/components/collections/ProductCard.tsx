@@ -26,7 +26,7 @@ export function ProductCard({ product }: { product: Product }) {
           key={imageUrl}
           src={imageUrl} 
           alt={product.name}
-          className="w-full h-full object-contain p-3 mix-blend-multiply transition-transform duration-700 ease-in-out group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
         />
       </div>
 

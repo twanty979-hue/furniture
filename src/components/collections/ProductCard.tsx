@@ -21,12 +21,12 @@ export function ProductCard({ product }: { product: Product }) {
     <div className="bg-surface border border-transparent rounded-none p-3 lg:p-4 flex flex-col relative group cursor-pointer hover:border-sage transition-colors">
       <Link href={`/product/${product.id}`} className="absolute inset-0 z-10" aria-label={`View ${product.name}`} />
       
-      <div className="w-full h-[280px] sm:h-[320px] bg-[#F5F2EC] flex items-center justify-center overflow-hidden mb-4 relative">
+      <div className="w-full aspect-square bg-[#F5F2EC] flex items-center justify-center overflow-hidden mb-4 relative">
         <img 
           key={imageUrl}
           src={imageUrl} 
           alt={product.name}
-          className="w-[90%] h-[90%] object-contain mix-blend-multiply transition-transform duration-700 ease-in-out group-hover:scale-105"
+          className="w-full h-full object-contain p-3 mix-blend-multiply transition-transform duration-700 ease-in-out group-hover:scale-105"
         />
       </div>
 

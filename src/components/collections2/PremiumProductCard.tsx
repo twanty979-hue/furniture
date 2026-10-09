@@ -66,7 +66,7 @@ export function PremiumProductCard({ product, index }: { product: Product; index
   return (
     <div className="bg-surface border border-hairline rounded-none flex flex-col relative group overflow-hidden transition-all duration-500 hover:border-sage hover:shadow-[0_16px_36px_rgba(0,0,0,0.05)]">
       {/* Architectural Image Box */}
-      <div className="w-full aspect-[4/3] bg-canvas flex items-center justify-center overflow-hidden relative border-b border-hairline">
+      <div className="w-full aspect-square bg-canvas flex items-center justify-center overflow-hidden relative border-b border-hairline">
         {/* Subtle hover background transition */}
         <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/5 transition-colors duration-700 z-10" />
         

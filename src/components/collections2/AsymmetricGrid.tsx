@@ -9,7 +9,7 @@ import { Product } from './PremiumProductCard';
 function AsymCard({
   product,
   index,
-  aspectClass = 'aspect-[4/3]',
+  aspectClass = 'aspect-square',
   hFull = false,
 }: {
   product: Product;
@@ -227,8 +227,8 @@ export function AsymmetricGrid({ products }: { products: Product[] }) {
           <div key={`row-${i}`} className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-1 items-stretch mb-1">
             <AsymCard product={p1} index={i} aspectClass="aspect-square md:aspect-auto md:h-full" hFull={true} />
             <div className="grid grid-cols-2 md:flex md:flex-col gap-1">
-              <AsymCard product={p2} index={i + 1} aspectClass="aspect-[4/3]" />
-              <AsymCard product={p3} index={i + 2} aspectClass="aspect-[4/3]" />
+              <AsymCard product={p2} index={i + 1} aspectClass="aspect-square" />
+              <AsymCard product={p3} index={i + 2} aspectClass="aspect-square" />
             </div>
           </div>
         );
@@ -237,8 +237,8 @@ export function AsymmetricGrid({ products }: { products: Product[] }) {
         // Fallback for 2 products: wide left, small right
         rows.push(
           <div key={`row-${i}`} className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-1 items-start mb-1">
-            <AsymCard product={p1} index={i} aspectClass="aspect-[4/3]" />
-            <AsymCard product={p2} index={i + 1} aspectClass="aspect-[4/3]" />
+            <AsymCard product={p1} index={i} aspectClass="aspect-square" />
+            <AsymCard product={p2} index={i + 1} aspectClass="aspect-square" />
           </div>
         );
         i += 2;
@@ -247,7 +247,7 @@ export function AsymmetricGrid({ products }: { products: Product[] }) {
         rows.push(
           <div key={`row-${i}`} className="grid grid-cols-1 md:grid-cols-2 gap-1 mb-1">
             <div className="col-span-1">
-              <AsymCard product={p1} index={i} aspectClass="aspect-[4/3]" />
+              <AsymCard product={p1} index={i} aspectClass="aspect-square" />
             </div>
           </div>
         );
@@ -263,10 +263,10 @@ export function AsymmetricGrid({ products }: { products: Product[] }) {
         rows.push(
           <div key={`row-${i}`} className="grid grid-cols-2 md:grid-cols-3 gap-1 items-start mb-1">
             <div className="col-span-2 md:col-span-1">
-              <AsymCard product={p1} index={i} aspectClass="aspect-square md:aspect-[4/3]" />
+              <AsymCard product={p1} index={i} aspectClass="aspect-square" />
             </div>
-            <AsymCard product={p2} index={i + 1} aspectClass="aspect-[4/3]" />
-            <AsymCard product={p3} index={i + 2} aspectClass="aspect-[4/3]" />
+            <AsymCard product={p2} index={i + 1} aspectClass="aspect-square" />
+            <AsymCard product={p3} index={i + 2} aspectClass="aspect-square" />
           </div>
         );
         i += 3;
@@ -274,8 +274,8 @@ export function AsymmetricGrid({ products }: { products: Product[] }) {
         // Fallback if we only have 1 or 2 products left
         rows.push(
           <div key={`row-${i}`} className="grid grid-cols-2 md:grid-cols-3 gap-1 mb-1">
-            {p1 && <AsymCard product={p1} index={i} aspectClass="aspect-[4/3]" />}
-            {p2 && <AsymCard product={p2} index={i + 1} aspectClass="aspect-[4/3]" />}
+            {p1 && <AsymCard product={p1} index={i} aspectClass="aspect-square" />}
+            {p2 && <AsymCard product={p2} index={i + 1} aspectClass="aspect-square" />}
           </div>
         );
         i += (p2 ? 2 : 1);

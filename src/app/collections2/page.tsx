@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { CollectionsHero } from '@/components/collections2/CollectionsHero';
 import { CatalogLayout } from '@/components/collections2/CatalogLayout';
 import { Product } from '@/components/collections2/PremiumProductCard';
@@ -180,6 +181,7 @@ export default async function Collections2Page(
         totalCount={totalCount}
         itemsPerPage={itemsPerPage}
       />
+      <Footer />
     </div>
   );
 }

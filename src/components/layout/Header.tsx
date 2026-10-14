@@ -57,14 +57,18 @@ export function Header({ dynamic = false }: { dynamic?: boolean }) {
   }, []);
 
   const isTransparent = dynamic && !isScrolled;
-  const isCollectionsActive = pathname === '/collections2';
+  const isCollectionsActive = pathname.startsWith('/collections');
+  const isRoomsActive = pathname === '/rooms';
+  const isMaterialsActive = pathname === '/materials';
+  const isAboutActive = pathname === '/about';
+  const isJournalActive = pathname === '/journal';
 
   const navLinks = [
     { name: 'Collections', href: '/collections2#catalog', active: isCollectionsActive },
-    { name: 'Rooms', href: '/collections2#catalog', active: false },
-    { name: 'Materials', href: '#', active: false },
-    { name: 'About', href: '#', active: false },
-    { name: 'Journal', href: '#', active: false },
+    { name: 'Rooms', href: '/rooms', active: isRoomsActive },
+    { name: 'Materials', href: '/materials', active: isMaterialsActive },
+    { name: 'About', href: '/about', active: isAboutActive },
+    { name: 'Journal', href: '/journal', active: isJournalActive },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

@@ -29,7 +29,7 @@ interface CatalogLayoutProps {
     { label: 'Shelf', members: [] },
     { label: 'Cabinet & More', members: [] },
     { label: 'Dressing & Working', members: [] },
-    { label: 'Accessories', members: ['Clothes Rack'] },
+    { label: 'Accessories', members: [] },
   ];
 
 export function CatalogLayout({

@@ -18,7 +18,7 @@ const CATEGORY_STRUCTURE: { label: string; members: string[] }[] = [
   { label: 'Shelf', members: [] },
   { label: 'Cabinet & More', members: [] },
   { label: 'Dressing & Working', members: [] },
-  { label: 'Accessories', members: ['Clothes Rack'] },
+  { label: 'Accessories', members: [] },
 ];
 
 function matchesCategory(sup: string, target: string): boolean {

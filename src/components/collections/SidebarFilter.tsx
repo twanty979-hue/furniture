@@ -52,7 +52,7 @@ const CATEGORY_GROUPS = [
   },
   {
     label: 'Accessories',
-    items: ['Clothes Rack'],
+    items: [],
   },
 ];
 

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { submitFurnitureContact } from '@/app/actions/contact';
+import { createClient } from '@/supabase/client';
 import { CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
@@ -23,14 +23,43 @@ export default function ContactPage() {
     setErrorMsg(null);
 
     try {
-      const res = await submitFurnitureContact(formData);
-      if (res.success) {
+      if (!formData.name.trim()) {
+        setErrorMsg('Please enter your name.');
+        setSubmitting(false);
+        return;
+      }
+      if (!formData.email.trim() && !formData.phone.trim()) {
+        setErrorMsg('Please provide either an email or phone number.');
+        setSubmitting(false);
+        return;
+      }
+
+      const nameParts = formData.name.trim().split(/\s+/);
+      const firstName = nameParts[0];
+      const lastName = nameParts.slice(1).join(' ') || '-';
+
+      const supabase = createClient();
+      const { error: insertError } = await supabase
+        .from('contact_inquiries')
+        .insert({
+          first_name: firstName,
+          last_name: lastName,
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          source: 'furniture',
+          status: 'new',
+        });
+
+      if (insertError) {
+        console.error('Supabase insert error:', insertError);
+        setErrorMsg('Unable to submit inquiry. Please try again.');
+      } else {
         setSubmitted(true);
         setFormData({ name: '', email: '', phone: '', message: '' });
-      } else {
-        setErrorMsg(res.error || 'Failed to submit inquiry.');
       }
-    } catch {
+    } catch (err: any) {
+      console.error('Network error in inquiry submission:', err);
       setErrorMsg('Network error. Please try again.');
     } finally {
       setSubmitting(false);

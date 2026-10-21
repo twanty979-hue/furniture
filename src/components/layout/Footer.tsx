@@ -34,6 +34,9 @@ export function Footer() {
           <Link href="/about" className="hover:text-sage transition-colors">
             About
           </Link>
+          <Link href="/contact" className="hover:text-sage transition-colors">
+            Contact
+          </Link>
           <Link href="/journal" className="hover:text-sage transition-colors">
             Journal
           </Link>
